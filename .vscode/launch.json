@@ -1,0 +1,33 @@
+{
+    // Launch configurations for debugging pytest in this workspace.
+    // - "Debug current pytest file" will run pytest against the active file in the editor.
+    // - "Debug all pytest tests" will run the full test suite.
+    // These use the VS Code Python extension's "python" debug type.
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Python: Debug current pytest file",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "pytest",
+            "console": "integratedTerminal",
+            "args": ["-q", "${file}"],
+            "env": {
+                "PYTHONPATH": "${workspaceFolder}/src;${env:PYTHONPATH}"
+            },
+            "justMyCode": true
+        },
+        {
+            "name": "Python: Debug all pytest tests",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "pytest",
+            "console": "integratedTerminal",
+            "args": ["-q"],
+            "env": {
+                "PYTHONPATH": "${workspaceFolder}/src;${env:PYTHONPATH}"
+            },
+            "justMyCode": true
+        }
+    ]
+}
