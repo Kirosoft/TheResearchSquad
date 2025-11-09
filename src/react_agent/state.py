@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 from dataclasses import dataclass, field
-from typing import Sequence
+from typing import Sequence, List
 
 from langchain_core.messages import AnyMessage
 from langgraph.graph import add_messages
@@ -20,6 +20,10 @@ class InputState:
 
     messages: Annotated[Sequence[AnyMessage], add_messages] = field(
         default_factory=list
+    )
+    roles: List[str] | None = field(
+        default=None,
+        metadata={"description": "User roles (e.g. ['admin']) passed via config for RBAC tool filtering."}
     )
     """
     Messages tracking the primary execution state of the agent.
